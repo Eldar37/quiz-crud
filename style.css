@@ -1,0 +1,3 @@
+body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.card-title { font-weight: 600; }
+#quizContent .question-block { margin-bottom: 1.25rem; padding: .75rem; border-radius: .5rem; background: #f8f9fa; }
