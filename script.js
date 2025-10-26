@@ -1,4 +1,3 @@
-// Quiz CRUD with localStorage
 const STORAGE_KEY = 'quiz_questions_v1';
 
 // Utilities
@@ -7,7 +6,7 @@ const uid = () => 'q_' + Math.random().toString(36).slice(2, 9);
 function loadQuestions() {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (!raw) {
-    // Seed sample data first time
+
     const sample = [
       { id: uid(), text: 'Столица Франции?', options: ['Париж','Лондон','Берлин','Мадрид'], correct: 0 },
       { id: uid(), text: '2 + 2 = ?', options: ['3','4','5','6'], correct: 1 }
@@ -22,7 +21,6 @@ function saveQuestions(arr) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
 }
 
-// DOM refs
 const qForm = document.getElementById('questionForm');
 const qId = document.getElementById('qId');
 const qText = document.getElementById('qText');
@@ -43,7 +41,6 @@ const cancelQuiz = document.getElementById('cancelQuiz');
 let questions = loadQuestions();
 renderList();
 
-// Render table
 function renderList() {
   questionsTbody.innerHTML = '';
   if (!questions.length) {
