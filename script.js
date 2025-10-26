@@ -131,7 +131,6 @@ function openEdit(id) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Delete
 function removeQuestion(id) {
   if (!confirm('Удалить вопрос окончательно?')) return;
   questions = questions.filter(q => q.id !== id);
@@ -140,7 +139,6 @@ function removeQuestion(id) {
   toast('Вопрос удалён');
 }
 
-// Quiz runner
 startQuizBtn.addEventListener('click', ()=> {
   if (!questions.length) { alert('Вопросов нет, добавьте сначала.'); return; }
   showQuiz();
@@ -177,7 +175,7 @@ submitQuiz.addEventListener('click', ()=>{
     if (selected && parseInt(selected.value,10) === q.correct) score++;
   });
   alert(`Результат: ${score} / ${questions.length}`);
-  // После показа результата — вернёмся к управлению
+  
   exitQuiz();
 });
 
@@ -189,7 +187,7 @@ function exitQuiz(){
   listSection.classList.remove('d-none');
 }
 
-// Helpers
+
 function escapeHtml(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
 
 function toast(msg){
@@ -205,7 +203,6 @@ function toast(msg){
   div.addEventListener('hidden.bs.toast', ()=> div.remove());
 }
 
-// Toggle management view
 showManageBtn.addEventListener('click', ()=>{
   manageSection.classList.toggle('d-none');
   listSection.classList.toggle('d-none');
