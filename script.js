@@ -62,7 +62,6 @@ function renderList() {
     questionsTbody.appendChild(tr);
   });
 
-  // attach handlers
   questionsTbody.querySelectorAll('button').forEach(btn=>{
     btn.addEventListener('click', (e)=>{
       const id = btn.getAttribute('data-id');
@@ -73,7 +72,6 @@ function renderList() {
   });
 }
 
-// Form submit -> create or update
 qForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   const id = qId.value;
@@ -91,7 +89,7 @@ qForm.addEventListener('submit', (e)=>{
   }
 
   if (id) {
-    // update
+
     const idx = questions.findIndex(q=>q.id === id);
     if (idx !== -1) {
       questions[idx] = { id, text, options, correct: corr };
@@ -101,7 +99,7 @@ qForm.addEventListener('submit', (e)=>{
       toast('Вопрос обновлён');
     }
   } else {
-    // create
+    
     const newQ = { id: uid(), text, options, correct: corr };
     questions.push(newQ);
     saveQuestions(questions);
@@ -121,7 +119,7 @@ function resetForm() {
   document.getElementById('saveBtn').textContent = 'Сохранить';
 }
 
-// Edit
+
 function openEdit(id) {
   const q = questions.find(x => x.id === id);
   if (!q) return;
