@@ -1,6 +1,5 @@
 const STORAGE_KEY = 'quiz_questions_v1';
 
-// Utilities
 const uid = () => 'q_' + Math.random().toString(36).slice(2, 9);
 
 function loadQuestions() {
